@@ -70,7 +70,7 @@ class Redis
         options = {
           :host     => uri.hostname,
           :port     => uri.port || DEFAULT_PORT, 
-          :password => uri.password
+          :password => CGI::unescape(uri.password)
         }
 
         options[:db]        = db.to_i   if db
